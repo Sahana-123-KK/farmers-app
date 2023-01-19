@@ -1,0 +1,35 @@
+.flexxrowhome{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+}
+
+.flexxrowlinks{
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    /* border: 2px solid cornflowerblue; */
+    padding: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+.one{
+    margin: 0px;
+    width: 40%;
+    text-align: center;
+}
+
+
+.flexxrowlinks a{
+    text-decoration: none;
+    font-size: larger;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+    background-color: #9dd942;
+}

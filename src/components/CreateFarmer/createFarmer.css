@@ -1,0 +1,17 @@
+.flexxrowcreatefarm {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid black; */
+}
+
+.widthcreate {
+  width: 40%;
+  background-color: #9dd942;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}

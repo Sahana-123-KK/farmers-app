@@ -1,0 +1,26 @@
+.flexxrowdatafarm{
+    padding: 20px;
+    flex-direction: row;
+    display: flex;
+    width: 98%;
+    border: 1px solid #9dd942;
+    align-items: center;
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin: 5px 0px;
+
+    justify-content: space-around;
+}
+.flexxrowdatafarm p{
+    margin: 0px;
+}
+.faddress{
+    width: 50%;
+
+}
+.fvo{
+    width: 10%;
+}
+.fname{
+    width: 15%;
+}

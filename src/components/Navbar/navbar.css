@@ -1,0 +1,19 @@
+.flexxrowbtnnav{
+    display: flex;
+    width: 30%;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+    /* border: 2px solid black; */
+}
+.customnav{
+    background-color: #9dd942 !important;
+    color: white;
+    z-index: 10000;
+
+
+}
+.customnav a{
+    color: white;
+
+}
