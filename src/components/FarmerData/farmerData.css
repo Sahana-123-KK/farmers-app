@@ -15,7 +15,7 @@
     margin: 0px;
 }
 .faddress{
-    width: 50%;
+    width: 40%;
 
 }
 .fvo{
@@ -23,4 +23,10 @@
 }
 .fname{
     width: 15%;
+}
+.fvariety{
+    width: 10%;
+}
+.fdate{
+    width: 10%;
 }

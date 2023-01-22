@@ -28,7 +28,21 @@
     /* align-items: center; */
     /* border: 2px solid black; */
 }
-.flexxcolallfarmers{
+.flexxrowdatafarm2{
+    padding: 20px;
+    flex-direction: row;
+    display: flex;
+    width: 98%;
+    border: 1px solid #9dd942;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #0a58ca;
+    margin: 5px 0px;
+    color: white;
+  
+    justify-content: space-around;
+  }
+.flexxcolallfarmers2{
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
@@ -38,4 +52,9 @@
     width: 100%;
     padding: 10px;
 
+}
+.flexxrowdatafarm2 p{
+    margin: 0px;
+    font-size: 120%;
+    font-weight: 600;
 }

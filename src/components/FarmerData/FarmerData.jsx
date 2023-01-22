@@ -6,6 +6,9 @@ const FarmerData = ({data}) => {
         <p className="fname">{data?.name} </p>
         <p className="fvno">{data?.vehicleNo} </p>
         <p className="faddress">{data?.address} </p>
+        <p className="fvariety">{data?.variety} </p>
+        <p className="fdate">{data?.date} </p>
+
     </div>
   )
 }

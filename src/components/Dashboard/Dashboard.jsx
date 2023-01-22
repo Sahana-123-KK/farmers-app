@@ -18,18 +18,24 @@ const Dashboard = () => {
       vehicleNo: "23432",
       address:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis delectus maxime cupiditate porro dignissimos? Eius excepturi molestiae nesciun",
+      variety: "grade1",
+      date: "12-04-2022",
     },
     {
       name: "Haseena Malik",
       vehicleNo: "232354432",
       address:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis delectus maxime cupiditate porro dignissimos? Eius excepturi molestiae nesciun",
+      variety: "grade2",
+      date: "22-11-2022",
     },
     {
       name: "Shivaay Singh Oberoi",
       vehicleNo: "23423532",
       address:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis delectus maxime cupiditate porro dignissimos? Eius excepturi molestiae nesciun",
+      variety: "rejected",
+      date: "12-09-2022",
     },
   ]);
 
@@ -73,9 +79,19 @@ const Dashboard = () => {
           ) : farmers.length === 0 ? (
             "No Farmers To Display Data"
           ) : (
-            farmers?.map((item, ind) => {
-              return <FarmerData data={item} />;
-            })
+            <div className="flexxcol">
+              <div className="flexxrowdatafarm2">
+                <p className="fname">Farmer Name</p>
+                <p className="fvno">Vehicle No</p>
+                <p className="faddress">Address </p>
+                <p className="fvariety">Variety </p>
+                <p className="fdate">Date</p>
+              </div>
+
+              {farmers?.map((item, ind) => {
+                return <FarmerData data={item} />;
+              })}
+            </div>
           )}
         </div>
       </div>

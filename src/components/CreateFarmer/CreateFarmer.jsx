@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./createFarmer.css";
 import { useNavigate } from "react-router-dom";
 
@@ -14,11 +14,15 @@ const CreateFarmer = () => {
     name: "",
     vehicleNo: "",
     address: "",
+    variety: "grade1",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFarmerDetails({ ...farmerDetails, [name]: value });
+  };
+  const changeVariety = (e) => {
+    setFarmerDetails({ ...farmerDetails, variety: e.target.value });
   };
 
   const createFarmerAPI = async (e) => {
@@ -75,6 +79,23 @@ const CreateFarmer = () => {
               class="form-control"
               id="exampleInputPassword1"
             />
+          </div>
+          <div class="mb-3">
+            <label for="variety" class="form-label">
+              Variety
+            </label>
+            <div class="dropdown">
+              <select
+                onChange={changeVariety}
+                className="variety-farmer"
+                name="variety"
+                id="variety"
+              >
+                <option value="grade1">Grade-1</option>
+                <option value="grade2">Grade-2</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">
