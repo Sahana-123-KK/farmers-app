@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("farmerlogin")) {
+    if (localStorage.getItem("ftoken")) {
       navigate("/");
     }
   }, []);
@@ -16,11 +16,11 @@ const Login = () => {
   });
   const loginAPI = async (e) => {
     e.preventDefault();
-    localStorage.setItem("farmerlogin", true);
-    window.location.reload()
-    navigate("/");
+    // localStorage.setItem("farmerlogin", true);
+    // window.location.reload()
+    // navigate("/");
     try {
-      const response = await fetch("", {
+      const response = await fetch("http://localhost:7000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,6 +33,10 @@ const Login = () => {
         alert("Logged In Successfully");
         const json = await response.json();
         console.log(json);
+        localStorage.setItem("ftoken",json.token)
+        // localStorage.setItem("farmerlogin",true)
+        navigate("/")
+        window.location.reload()
       } else {
         alert("Couldn't Login");
       }

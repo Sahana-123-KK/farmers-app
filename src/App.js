@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
     <Router>
-      {localStorage.getItem("farmerlogin") && <Navbar />}
+      {localStorage.getItem("ftoken") && <Navbar />}
       <Routes>
 
         <Route path='/login' element={<Login />} />

@@ -6,15 +6,16 @@ import { useNavigate } from "react-router-dom";
 const CreateFarmer = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem("farmerlogin")) {
+    if (!localStorage.getItem("ftoken")) {
       navigate("/login");
     }
   }, []);
   const [farmerDetails, setFarmerDetails] = useState({
     name: "",
-    vehicleNo: "",
+    vno: "",
     address: "",
-    variety: "grade1",
+    variety: "hemapasadh",
+    datetime:""
   });
 
   const handleChange = (e) => {
@@ -28,10 +29,11 @@ const CreateFarmer = () => {
   const createFarmerAPI = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("", {
+      const response = await fetch("http://localhost:7000/farmers/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          token:localStorage.getItem("ftoken")
         },
         body: JSON.stringify(farmerDetails),
       });
@@ -60,6 +62,7 @@ const CreateFarmer = () => {
               Farmer Name
             </label>
             <input
+            required
               onChange={handleChange}
               name="name"
               type="text"
@@ -73,11 +76,26 @@ const CreateFarmer = () => {
               Vehicle No
             </label>
             <input
+            required
               onChange={handleChange}
-              name="vehicleNo"
+              name="vno"
               type="text"
               class="form-control"
               id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="datetime" class="form-label">
+             DateTime
+            </label>
+            
+            <input
+            required
+              onChange={handleChange}
+              name="datetime"
+              type="datetime-local"
+              class="form-control"
+              id="datetime"
             />
           </div>
           <div class="mb-3">
@@ -86,14 +104,15 @@ const CreateFarmer = () => {
             </label>
             <div class="dropdown">
               <select
+              required
                 onChange={changeVariety}
                 className="variety-farmer"
                 name="variety"
                 id="variety"
               >
-                <option value="grade1">Grade-1</option>
-                <option value="grade2">Grade-2</option>
-                <option value="rejected">Rejected</option>
+                <option value="hemapasadh">hemapasadh</option>
+                <option value="banganpalli">banganpalli</option>
+                {/* <option value="rejected">Rejected</option> */}
               </select>
             </div>
           </div>
@@ -102,6 +121,7 @@ const CreateFarmer = () => {
               Farmer Address
             </label>
             <textarea
+            required
               onChange={handleChange}
               name="address"
               class="form-control"

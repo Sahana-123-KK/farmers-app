@@ -6,7 +6,11 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const logoutFnc = () => {
-    localStorage.removeItem("farmerlogin");
+    // localStorage.removeItem("farmerlogin");
+    localStorage.removeItem("ftoken");
+    localStorage.removeItem("usernamef");
+
+
     navigate("/login");
     alert("Logged Out Successfully");
     window.location.reload()
@@ -49,6 +53,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flexxrowbtnnav">
+          {localStorage.getItem("usernamef")}
           <button onClick={logoutFnc} className="btn btn-primary btn-lg">
             Logout
           </button>

@@ -7,45 +7,21 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem("farmerlogin")) {
+    if (!localStorage.getItem("ftoken")) {
       navigate("/login");
     }
   }, []);
   const [loading, setLoading] = useState(false);
-  const [farmers, setFarmers] = useState([
-    {
-      name: "Anubhav Singh",
-      vehicleNo: "23432",
-      address:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis delectus maxime cupiditate porro dignissimos? Eius excepturi molestiae nesciun",
-      variety: "grade1",
-      date: "12-04-2022",
-    },
-    {
-      name: "Haseena Malik",
-      vehicleNo: "232354432",
-      address:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis delectus maxime cupiditate porro dignissimos? Eius excepturi molestiae nesciun",
-      variety: "grade2",
-      date: "22-11-2022",
-    },
-    {
-      name: "Shivaay Singh Oberoi",
-      vehicleNo: "23423532",
-      address:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis delectus maxime cupiditate porro dignissimos? Eius excepturi molestiae nesciun",
-      variety: "rejected",
-      date: "12-09-2022",
-    },
-  ]);
+  const [farmers, setFarmers] = useState([]);
 
   const getFarmersDataAPI = async () => {
     setLoading(true);
     try {
-      const response = await fetch("", {
+      const response = await fetch("http://localhost:7000/farmers/getfarmers", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          token:localStorage.getItem("ftoken")
         },
       });
       console.log(response);

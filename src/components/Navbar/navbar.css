@@ -2,9 +2,13 @@
     display: flex;
     width: 30%;
     flex-direction: row;
+    align-items: center;
     justify-content: flex-end;
     
     /* border: 2px solid black; */
+}
+.flexxrowbtnnav button{
+    margin: 0px 10px;
 }
 .customnav{
     background-color: #9dd942 !important;
