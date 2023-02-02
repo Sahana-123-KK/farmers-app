@@ -4,19 +4,29 @@ import "./createFarmer.css";
 import { useNavigate } from "react-router-dom";
 
 const CreateFarmer = () => {
+  const [varieties,setVarieties] = useState([])
+  const[loading,setLoading] = useState(false)
+
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("ftoken")) {
       navigate("/login");
+    }
+    else{
+      getVaritiesApi()
     }
   }, []);
   const [farmerDetails, setFarmerDetails] = useState({
     name: "",
     vno: "",
     address: "",
-    variety: "hemapasadh",
+    variety: "others",
     datetime:""
   });
+
+  useEffect(()=>{
+    setFarmerDetails({...farmerDetails,variety:varieties[0]?.name})
+  },[varieties])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +36,28 @@ const CreateFarmer = () => {
     setFarmerDetails({ ...farmerDetails, variety: e.target.value });
   };
 
+  const getVaritiesApi = async()=>{
+    setLoading(true)
+    try {
+      const response = await fetch("http://localhost:7000/varieties/all",{
+        method:'GET',
+        headers:{
+          "Content-Type":"application/json",
+          token:localStorage.getItem("ftoken")
+        },
+        
+      })
+      console.log(response)
+      const json = await response.json()
+      setVarieties(json)
+      console.log(json)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+
+    }
+  }
   const createFarmerAPI = async (e) => {
     e.preventDefault();
     try {
@@ -110,12 +142,35 @@ const CreateFarmer = () => {
                 name="variety"
                 id="variety"
               >
-                <option value="hemapasadh">hemapasadh</option>
-                <option value="banganpalli">banganpalli</option>
+                {loading ?  <div class="spinner-border text-success" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div> :
+                  varieties?.map((item,ind)=>{
+                    return <option value={item?.name}>{item?.name}</option>
+                  })
+                }
+                {/* <option value="hemapasadh">hemapasadh</option> */}
+                {/* <option value="hemapasadh">hemapasadh</option> */}
+               {!loading && <option value="others">others</option>}
                 {/* <option value="rejected">Rejected</option> */}
               </select>
             </div>
           </div>
+          
+         {farmerDetails.variety === "others" && <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">
+             Other
+            </label>
+            <input
+            required
+            value={farmerDetails?.others}
+              onChange={handleChange}
+              name="others"
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>}
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">
               Farmer Address
