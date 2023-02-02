@@ -51,6 +51,7 @@ const Dashboard = () => {
         <h3 className="headdash sticky-top">Farmers' Dashboard
        {!loading && <CSVLink data={farmers} className="btn btn-primary my-3" filename="FarmersData" >Download Data</CSVLink>}
         </h3>
+        {/* This CSV is responsible for downloading the json data to csv */}
        
 
         <div className="flexxcolallfarmers">
