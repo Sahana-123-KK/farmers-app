@@ -16,6 +16,7 @@ const CreateFarmer = () => {
       getVaritiesApi()
     }
   }, []);
+  const[success,setSuccess] = useState("")
   const [farmerDetails, setFarmerDetails] = useState({
     name: "",
     vno: "",
@@ -74,7 +75,8 @@ const CreateFarmer = () => {
         const json = await response.json();
 
         console.log(json);
-        alert("Farmer Created Successfully");
+        setSuccess("Farmer Created Successfully")
+        // alert("Farmer Created Successfully");
       } else {
         alert("Couldn't Create Farmer");
       }
@@ -87,6 +89,7 @@ const CreateFarmer = () => {
     <div className="flexxrowcreatefarm">
       <div className="widthcreate">
         <h3 className="createfarmhead">Create New Farmer</h3>
+        <p className="successmsg">{success} </p>
 
         <form onSubmit={createFarmerAPI}>
           <div class="mb-3">

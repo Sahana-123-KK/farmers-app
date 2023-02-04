@@ -24,3 +24,8 @@
     background: #758f4f;
     color: white;
 }
+.successmsg{
+  color:#0a58ca;
+  font-size: larger;
+  font-weight: 600;
+}

@@ -27,6 +27,14 @@
 .fvariety{
     width: 10%;
 }
+.flexxrowdatafarm i{
+    margin: 0px 5px;
+    color: #0a58ca;
+}
 .fdate{
-    width: 10%;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid brown; */
+    align-items: flex-start;
 }
