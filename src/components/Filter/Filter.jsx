@@ -1,16 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilterDatacomp from "../FilterDatacomp/FilterDatacomp";
 import "./filter.css";
 import Calendar from "react-calendar";
 // import datas from "../../../data";
 import datas from "../../data";
 const Filter = () => {
-    const [value, onChange] = useState(new Date());
+  const [start, setStart] = useState();
+  const [finisth, setFinish] = useState();
   const [data, setData] = useState(datas);
+  const [filter, setFilter] = useState(datas);
+
+  const filterFnc = () => {
+    setFilter(() => {
+      return filter.filter((item, ind) => {
+        return (
+          new Date(
+            item?.date?.split("/")[1],
+            item?.date?.split("/")[0],
+            item?.date?.split("/")[2]
+          )
+           >= new Date(start).getTime()
+        );
+      });
+    });
+  };
+  useEffect(() => {
+    // filterFnc()
+  }, [start, finisth]);
   return (
     <div className="flexxfil">
       <h4 className="headfil">PackHouse Data</h4>
       {/* <Calendar onChange={onChange} value={value} /> */}
+      <div className="flexxrowdatesfil">
+        <p>
+          Date From &nbsp;{" "}
+          <input
+            onChange={(e) => {
+              setStart(e.target.value);
+            }}
+            type="date"
+            name=""
+            id=""
+          />
+        </p>
+        <p>
+          Date To &nbsp;
+          <input
+            onChange={(e) => {
+              setFinish(e.target.value);
+            }}
+            type="date"
+            name=""
+            id=""
+          />
+        </p>
+      </div>
 
       <div className="flexxcoltabfil">
         <div className="flexxrowheadtabfil">
@@ -43,9 +87,9 @@ const Filter = () => {
           </span>
         </div>
         {
-          data?.length == 0
+          filter?.length == 0
             ? "No Date To Display"
-            : data.map((item, ind) => {
+            : filter.map((item, ind) => {
                 return <FilterDatacomp item={item} />;
               })
 
