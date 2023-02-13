@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import CreateFarmer from './components/CreateFarmer/CreateFarmer';
 import Dashboard from './components/Dashboard/Dashboard';
 import Navbar from './components/Navbar/Navbar';
+import Filter from './components/Filter/Filter';
 function App() {
   return (
     <Router>
@@ -15,6 +16,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/createfarmer' element={<CreateFarmer />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/filter' element={<Filter />} />
+
 
 
 

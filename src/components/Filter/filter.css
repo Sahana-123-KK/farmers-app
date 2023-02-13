@@ -1,0 +1,61 @@
+.flexxfil{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid palevioletred;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.flexxcoltabfil{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 95%;
+    border: 2px solid cornflowerblue;
+    height: 90vh;
+}
+.flexxrowheadtabfil{
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border: 2px solid yellowgreen;
+    /* padding: 5px; */
+    height: 25%;
+    background-color: greenyellow;
+    color: white;
+}
+.typesfil2{
+    width: 15%;
+    font-size: large;
+    font-weight: 500;
+    /* padding: 0px 5px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hotpink;
+    height: 100%;
+    justify-content: space-evenly;
+}
+.flex2{
+display: flex;
+flex-direction: row;
+align-items: center;
+width: 100%;
+justify-content: space-around;
+border-top: 2px solid white;
+}
+.typesfil{
+    width: 7%;
+    font-size: large;
+    font-weight: 500;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: tomato;
+    text-align: center;
+    padding: 0px 5px;
+}
